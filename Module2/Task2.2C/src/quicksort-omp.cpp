@@ -5,7 +5,7 @@
 #include <thread>
 #include <omp.h>
 
-#define NUM_ELEMENTS 10000000
+#define NUM_ELEMENTS 500000000
 #define MAX_ELEMENT 10000000
 
 using namespace std;
