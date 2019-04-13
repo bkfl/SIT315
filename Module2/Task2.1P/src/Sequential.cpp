@@ -61,10 +61,10 @@ void print_matrix(int** matrix, char* title, int size, ofstream &file) {
     if (file) {
         file << title << ":\n";
         for (int r = 0; r < size; r++) {
-            for (int c = 1; c < size - 1; c++) {
+            for (int c = 0; c < size - 1; c++) {
                 file << matrix[r][c] << ",";
             }
-            file << matrix[r][size - 2] << "\n";
+            file << matrix[r][size - 1] << "\n";
         }
     }
 }
