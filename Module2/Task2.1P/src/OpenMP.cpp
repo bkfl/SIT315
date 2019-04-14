@@ -50,12 +50,12 @@ int** multiply_matrices(int** matrix_a, int** matrix_b, int size, int threads) {
 
     omp_set_num_threads(threads);
 
-    #pragma omp parallel for
+    #pragma omp parallel for schedule(static, size/threads)
     for (int r = 0; r < size; r++) {
         result[r] = new int[size];
     }
 
-    #pragma omp parallel for collapse(2) shared(matrix_a, matrix_b, size)
+    #pragma omp parallel for collapse(2) shared(matrix_a, matrix_b, size) schedule(static, size*size/threads)
     for (int r = 0; r < size; r++) {
         for (int c = 0; c < size; c++) {
             result[r][c] = calc_row_col(matrix_a, matrix_b, r, c, size);
